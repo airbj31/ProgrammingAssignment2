@@ -1,10 +1,10 @@
-## makeCacheMatrix make the list which have a 4 element,named as get, set, getInv, setInv.
+## makeCacheMatrix make a list which have 4 elements, named as get, set, getInv and setInv respectively.
 ## All of the elements are actually functions used to  
 ##  * set - used to set a cache matrix
 ##  * get - used to get a cache matrix
 ##  * setInv - used to set an inverse matrix
 ##  * getInv - used to get inverse matrix
-## above 4 function creates a special "matrix" object that can cache its inverse.
+## the function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix(),force=FALSE) {
   
@@ -47,18 +47,18 @@ makeCacheMatrix <- function(x = matrix(),force=FALSE) {
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   
-  ## getInversed matrix from x and name it as iM.
+  ## getInverse matrix from x and name it as iM.
   iM <- x$getInv()
   
-  ## check if the inversed matrix are stored or not.
+  ## check if the inverse matrix are stored or not.
   if(!is.null(iM)) {
     message("getting cached data")
-    return(iM)                              ## if the inversed matrix is not empty, return inversed matrix to console.
+    return(iM)                              ## if the inverse matrix is not empty, return inverse matrix to console.
   }
   ## store the inversed matrix into cache
   data <- x$get()                           ## get input Matrix.          
-  iM <- solve(data, ...)                    ## inverse the matrix using solve function. this function are involved in base package.
+  iM <- solve(data, ...)                    ## invert the matrix using solve function. this function are involved in base package.
   message("Saving data into cache")         
-  x$setInv(iM)                              ## save the inversed matrix into cache. 
+  x$setInv(iM)                              ## save the inverse matrix into cache. 
   iM
 }
