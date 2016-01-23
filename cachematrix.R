@@ -13,7 +13,7 @@ makeCacheMatrix <- function(x = matrix(),force=FALSE) {
   
   # check if the matrix is square(=invertible) or not.
   # If force is true, extract square matrix with min(dim(x)) x min(dim(x)) 
-  if(nrow(x)!=ncol(x) && force==FALSE) {stop("the Matrix is not invertible, If you want to force it, use folce=TRUE");}
+  if(nrow(x)!=ncol(x) && force==FALSE) {stop("the Matrix is not invertible, If you want to force it, use force=TRUE");}
   else if(nrow(x) != ncol(x)){ 
     minX<-min(dim(x))    ## get small number between nrow(x) and ncol(x)
     x<-x[1:minX,1:minX]  ## coerce the matrix.
@@ -47,7 +47,7 @@ makeCacheMatrix <- function(x = matrix(),force=FALSE) {
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   
-  ## getInverse matrix from x and name it as iM.
+  ## get Inverse matrix from x and name it as iM.
   iM <- x$getInv()
   
   ## check if the inverse matrix are stored or not.
